@@ -1,0 +1,12 @@
+.changeForm{
+    display: none;
+}
+.home_icon{
+    margin-left: 8px;
+    margin-bottom: 8px;
+    color: white;
+    width: 36px;
+}
+.avatar-img{
+    background-size: contain;
+}

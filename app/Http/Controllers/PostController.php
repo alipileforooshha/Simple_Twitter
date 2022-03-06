@@ -34,4 +34,8 @@ class PostController extends Controller
         ]);
         return redirect('/');
     }
+    public function show(Post $post){
+        
+        return view('singlePost',['post'=>$post]);
+    }
 }

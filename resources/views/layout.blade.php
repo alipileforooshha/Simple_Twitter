@@ -16,8 +16,9 @@
                 <li><a href="/"><img src="home.png" alt="" class="home_icon"></a></li>            
             @auth
                 <li>
-                    
-                    <img src="{{asset('storage/images/'.auth()->user()->avatar)}}" class="rounded-circle mx-2 avatar-img" style="width: 50px; height:50px;"></img>
+                    <a href="/my_tweets">
+                        <img src="{{asset('storage/images/'.auth()->user()->avatar)}}" class="rounded-circle mx-2 avatar-img" style="width: 50px; height:50px;"></img>
+                    </a>
                 </li>
                 <li class="nav-item text-white m-3">
                     <a class="text-decoration-none text-white" href="/Dashboard">Dashboard</a>

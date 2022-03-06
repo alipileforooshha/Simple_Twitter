@@ -1,16 +1,5 @@
 @include('layout')
-@auth
-<div class="container mt-4 d-flex flex-column justify-content-center w-50">
-    <form action="/post" method="POST">
-        @csrf
-        <textarea placeholder="What's on your mind?" name="content" id="" class="form-control">
-        </textarea>
-        <button type="submit" class="btn btn-primary text-white mt-3"> Post it! </button>
-    </form>
-</div>
-@endauth
-<div class="container mt-4 d-flex flex-column justfy-content-center w-50">
-    @foreach($posts as $post)
+<div class="container">
     <a href="{{route('posts.post',$post)}}" class="text-decoration-none text-dark">
         <div class="d-flex flex-column border-bottom p-2 mb-3 border-info rounded-1">
             <div class="d-flex justify-content-between">
@@ -55,7 +44,5 @@
                 @endauth
             </div>
         </div>
-
     </a>
-    @endforeach
 </div>

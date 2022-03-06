@@ -20,7 +20,7 @@ class RegisterController extends Controller
         User::create([
             'username' => $req->username,
             'email' => $req->email,
-            'password' =>Hash::make($req->password) 
+            'password' =>Hash::make($req->password)
         ]);
         if(Auth::attempt($req->only('email','password'))){
             return redirect('/');

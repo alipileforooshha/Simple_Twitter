@@ -10,3 +10,6 @@
 .avatar-img{
     background-size: contain;
 }
+.comment-form{
+    display: none;
+}

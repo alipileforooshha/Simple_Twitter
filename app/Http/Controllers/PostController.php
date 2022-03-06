@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\retweet;
@@ -35,7 +36,14 @@ class PostController extends Controller
         return redirect('/');
     }
     public function show(Post $post){
-        
         return view('singlePost',['post'=>$post]);
+    }
+    public function comment(Post $post, Request $req){
+        Comment::create([
+            'user_id'=>auth()->user()->id,
+            'post_id'=>$post->id,
+            'content'=>$req->content
+        ]);
+        return back();
     }
 }

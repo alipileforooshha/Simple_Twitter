@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/avatar',[UserController::class,'avatar']);
     Route::post('/post/{post}/delete',[PostController::class,'delete'])->name('posts.delete');
     Route::post('/post/{post}/retweet',[PostController::class,'retweet'])->name('posts.retweet');
+    Route::post('/post/{post}/comment',[PostController::class,'comment'])->name('posts.comment');
 });
 Route::get('posts/{post}',[PostController::class, 'show'])->name('posts.post');
 Route::get('/',[MainController::class, 'index']);

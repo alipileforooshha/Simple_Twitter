@@ -11,7 +11,6 @@
 @endauth
 <div class="container mt-4 d-flex flex-column justfy-content-center w-50">
     @foreach($posts as $post)
-    <a href="{{route('posts.post',$post)}}" class="text-decoration-none text-dark">
         <div class="d-flex flex-column border-bottom p-2 mb-3 border-info rounded-1">
             <div class="d-flex justify-content-between">
                 <h5>{{$post->user->username}}</h5>
@@ -32,7 +31,9 @@
                 <button class="btn btn-primary">submit</button>
             </form>
             @endauth
-            {{$post->content}}
+            <a href="{{route('posts.post',$post)}}" class="text-decoration-none text-dark">
+                {{$post->content}}
+            </a>
             <div class="d-flex flex-row align-items-center mt-2 mb-0">
                 @auth
                     @if(! $post->likedBy(Auth::user()) )
@@ -52,10 +53,18 @@
                         <button class="btn btn-success p-1 text-white mx-2">retweet</button>
                     </form>
                     <div class="mx-2">{{$post->retweet->count()}}</div>
+
+                    {{$id = strval($post->id)}}
+                    <button class="btn btn-success comment-btn" type="button" onclick="openCommentForm({{$post->id}})"> 
+                        comment
+                    </button>
+                    <form action="{{route('posts.comment',$post)}}" method="POST" class="comment-form" id="{{$id.'comment'}}">
+                        @csrf
+                        <input type="text" name="content" id="" placeholder="comment the post">
+                        <button class="btn btn-success">submit</button>
+                    </form>
                 @endauth
             </div>
         </div>
-
-    </a>
     @endforeach
 </div>

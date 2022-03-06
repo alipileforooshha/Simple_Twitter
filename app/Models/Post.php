@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Comment;
 
 class Post extends Model
 {
@@ -21,6 +22,9 @@ class Post extends Model
     }
     public function retweet(){
         return $this->hasMany(retweet::class);
+    }
+    public function comment(){
+        return $this->hasMany(Comment::class);
     }
     protected $fillable = [
         'content',

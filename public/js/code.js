@@ -21,8 +21,13 @@ function updatePassword(){
 }
 
 function openChangeForm(id){
-    console.log('hey')
-    console.log(id)
     myform = document.getElementById(`${id}`);
+    myform.style.display = 'block';
+}
+
+function openCommentForm(id){
+    console.log('heyyyy')
+    console.log(`${id}`+'comment');
+    myform = document.getElementById(`${id}`+'comment');
     myform.style.display = 'block';
 }

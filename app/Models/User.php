@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use phpDocumentor\Reflection\Types\This;
+use App\Models\Comment;
 
 class User extends Authenticatable
 {
@@ -27,7 +28,9 @@ class User extends Authenticatable
     public function retweet(){
         return $this->hasMany(retweet::class);
     }
-
+    public function comment(){
+        return $this->hasMany(Comment::class);
+    }
     protected $fillable = [
         'username',
         'email',

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,8 +17,8 @@ class CreateRetweetsTable extends Migration
     {
         Schema::create('retweets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->onDelete('cascade');
-            $table->foreignId('post_id')->onDelete('cascade');
+            $table->foreignIdFor(User::class)->onDelete('cascade');
+            $table->foreignIdFor(Post::class)->onDelete('cascade');
             $table->timestamps();
         });
     }

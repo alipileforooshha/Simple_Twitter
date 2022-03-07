@@ -47,14 +47,14 @@ class UserController extends Controller
         auth()->user()->save();
         return redirect('/Dashboard');
     }
-    public function personal(){
-        $user = auth()->user();
-        $posts = $user->Post;
-        return view('mytweets',['posts'=>$posts]);
-    }
     public function profile(User $user){
-        $user = User::find($user->id);
-        $posts = Post::where('user_id',$user->id)->get(); 
-        return view('profile',['posts'=>$posts]);
+        $posts = $user->Post;
+        return view('profile',['posts'=>$posts, 'user'=>$user]);
+    }
+    public function bio(Request $req){
+        $user = auth()->user();
+        $user->bio = $req->bio;
+        $user->save();
+        return redirect()->route('profile.user',[auth()->user()]);
     }
 }

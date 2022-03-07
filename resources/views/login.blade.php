@@ -19,7 +19,7 @@
             @if(isset($error))
                 <div class="text-white">{{$error}}</div>
             @endif
-            <button type="submit"  class="btn btn-light text-primary border border-white">submit</button>
+            <button type="submit"  class="btn btn-light text-primary border border-primary">submit</button>
         </div>
     </form>
 </div>

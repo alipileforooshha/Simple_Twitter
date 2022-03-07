@@ -31,3 +31,7 @@ function openCommentForm(id){
     myform = document.getElementById(`${id}`+'comment');
     myform.style.display = 'block';
 }
+function openbioform(){
+    myform = document.getElementById('changeform');
+    myform.style.display = 'block';
+}

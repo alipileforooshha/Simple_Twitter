@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function(){
     Route::get('/Dashboard',[DashboardController::class, 'index']);
-    Route::get('/profile/{user}',[UserController::class, 'profile']);
+    Route::get('/profile/{user}',[UserController::class, 'profile'])->name('profile.user');
     Route::get('/my_tweets',[UserController::class, 'personal']);
     Route::post('/post',[PostController::class,'create']);
     Route::post('/post/{post}/{userid}/edit',[PostController::class,'edit'])->name('posts.edit');
@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/post/{post}/delete',[PostController::class,'delete'])->name('posts.delete');
     Route::post('/post/{post}/retweet',[PostController::class,'retweet'])->name('posts.retweet');
     Route::post('/post/{post}/comment',[PostController::class,'comment'])->name('posts.comment');
+    Route::post('/bio',[UserController::class, 'bio']);
 });
 Route::get('posts/{post}',[PostController::class, 'show'])->name('posts.post');
 Route::get('/',[MainController::class, 'index']);

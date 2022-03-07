@@ -11,7 +11,7 @@
 @endauth
 <div class="container mt-4 d-flex flex-column justfy-content-center w-50">
     @foreach($posts as $post)
-        <div class="d-flex flex-column border-bottom p-2 mb-3 border-info rounded-1">
+    <div class="d-flex flex-column border-bottom p-2 mb-3 border-info rounded-1">
             <div class="d-flex justify-content-between">
                 <h5>{{$post->user->username}}</h5>
             @auth
@@ -53,18 +53,18 @@
                         <button class="btn btn-success p-1 text-white mx-2">retweet</button>
                     </form>
                     <div class="mx-2">{{$post->retweet->count()}}</div>
-
-                    {{$id = strval($post->id)}}
+                    
                     <button class="btn btn-success comment-btn" type="button" onclick="openCommentForm({{$post->id}})"> 
                         comment
                     </button>
-                    <form action="{{route('posts.comment',$post)}}" method="POST" class="comment-form" id="{{$id.'comment'}}">
-                        @csrf
-                        <input type="text" name="content" id="" placeholder="comment the post">
-                        <button class="btn btn-success">submit</button>
-                    </form>
-                @endauth
-            </div>
+                    <div class="mx-2">{{$post->comment->count()}}</div>
+                    @endauth
+                </div>
+                <form action="{{route('posts.comment',$post)}}" method="POST" class="comment-form" id="{{strval($post->id).'comment'}}">
+                    @csrf
+                    <input type="text" class="form-control my-2" name="content" id="" placeholder="Share your thoughts">
+                    <button class="btn btn-success">submit comment</button>
+                </form>
         </div>
     @endforeach
 </div>

@@ -16,15 +16,15 @@
                 <li><a href="/"><img src="home.png" alt="" class="home_icon"></a></li>            
             @auth
                 <li>
-                    <a href="/my_tweets">
+                    <a href="{{route('profile.user',auth()->user())}}">
                         <img src="{{asset('storage/images/'.auth()->user()->avatar)}}" class="rounded-circle mx-2 avatar-img" style="width: 50px; height:50px;"></img>
                     </a>
                 </li>
-                <li class="nav-item text-white m-3">
-                    <a class="text-decoration-none text-white" href="/Dashboard">Dashboard</a>
-                </li>
                 <li class="nav-item text-white m-3 text-white">
                     {{auth()->user()->username}}
+                </li>   
+                <li class="nav-item text-white m-3">
+                    <a class="text-decoration-none text-white" href="/Dashboard">Dashboard</a>
                 </li>
                 <form action="/logout" method="post" class="align-self-end m-3">
                     @csrf

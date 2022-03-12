@@ -27,9 +27,11 @@ Route::middleware('auth')->group(function(){
     Route::post('/post/{post}/retweet',[PostController::class,'retweet'])->name('posts.retweet');
     Route::post('/post/{post}/comment',[PostController::class,'comment'])->name('posts.comment');
     Route::post('/bio',[UserController::class, 'bio']);
+    Route::get('/index',[MainController::class, 'index']);
+    Route::get('posts/{post}',[PostController::class, 'show'])->name('posts.post');
+    Route::post('user/{user}/follow',[UserController::class,'follow'])->name('users.follow');
 });
-Route::get('posts/{post}',[PostController::class, 'show'])->name('posts.post');
-Route::get('/',[MainController::class, 'index']);
+Route::view('/','first');
 Route::view('/login','login');
 Route::view('/register','register');
 Route::post('/register',[RegisterController::class,'create']);

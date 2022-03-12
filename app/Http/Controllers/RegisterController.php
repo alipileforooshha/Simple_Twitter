@@ -23,7 +23,7 @@ class RegisterController extends Controller
             'password' =>Hash::make($req->password)
         ]);
         if(Auth::attempt($req->only('email','password'))){
-            return redirect('/');
+            return redirect('/index');
         }else{
             echo 'no';
             echo $req->email;

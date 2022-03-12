@@ -11,7 +11,7 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md bg-secondary">
+    <nav class="navbar navbar-expand-md bg-primary">
         <ul class="navbar-nav d-flex align-items-center justify-content-between">
                 <li><a href="/"><img src="home.png" alt="" class="home_icon"></a></li>            
             @auth

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Post;
+use App\Models\follow;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -56,5 +57,12 @@ class UserController extends Controller
         $user->bio = $req->bio;
         $user->save();
         return redirect()->route('profile.user',[auth()->user()]);
+    }
+    public function follow(User $user){
+        follow::create([
+            'isfollowing' => auth()->user()->id,
+            'isfollowed' => $user->id
+        ]);
+        return redirect('/index');
     }
 }

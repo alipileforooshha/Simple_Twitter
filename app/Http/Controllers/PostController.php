@@ -17,7 +17,7 @@ class PostController extends Controller
             'content' => $req->content,
             'user_id' => auth()->user()->id
         ]);
-        return redirect('/');
+        return redirect('/index');
     }
     public function edit(Request $req,Post $post){
         $post->content = $req->content;
